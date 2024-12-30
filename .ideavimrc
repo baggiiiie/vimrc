@@ -1,0 +1,132 @@
+"" Source your .vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=20
+
+syntax on
+
+set hlsearch
+nmap <esc> :noh <CR>
+set incsearch
+set ignorecase
+set smartcase
+
+set backspace=indent,eol,start
+set autoindent noexpandtab tabstop=4 shiftwidth=4
+
+
+" don't use ex mode, use q for formatting.
+map Q gq
+
+set number
+set relativenumber
+:set keep-english-in-normal
+
+set showcmd
+set showmode
+
+""" Text editor
+nmap H g^
+nmap L g$
+vmap H g^
+vmap L g$
+
+map <C-a> <ESC>^
+imap <C-a> <ESC>I
+vmap <C-a> H
+map <C-e> <ESC>$
+imap <C-e> <ESC>A
+vmap <C-e> L
+
+imap <C-k> <ESC>C
+
+nmap <CR> o<Esc>k
+nmap <S-CR> O<Esc>j
+
+nnoremap za :action CollapseRegionRecursively<CR>
+
+
+""" ideavim specifics
+""" MacOS panel shortcuts
+map ¬ <C-w>l
+map ˙ <C-w>h
+map ∆ <C-w>j
+map ˚ <C-w>k
+map ß <C-w>s
+map √ <C-w>v
+map ƒ gT
+map <M-p> gt
+map ç <Action>(StretchSplitToLeft)
+map ∂ <Action>(StretchSplitToRight)
+
+nmap <M-Left> <C-w>h
+nmap <M-Right> <C-w>l
+nmap <M-Up> <C-w>k
+nmap <M-Down> <C-w>j
+
+
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+set NERDTree
+Plug 'preservim/nerdtree'
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings -------------------------
+set showmode
+set so=5
+set incsearch
+set nu
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+
+""" Map leader to space ---------------------
+let mapleader=" "
+nmap <leader>( viwS(
+nmap <leader>) viwS)
+nmap <leader>" viwS"
+nmap <leader>[ viwS[
+nmap <leader>] viwS]
+nmap <leader>{ viwS{
+nmap <leader>} viwS}
+
+""" Mappings --------------------------------
+map <leader>e <Plug>(easymotion-s)
+
+map <leader>f <Action>(ActivateProjectToolWindow)
+map <leader>d <Action>(Debug)
+map <leader>t <Action>(editRunConfigurations)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+
+map <leader>z <Action>(ToggleDistractionFreeMode)
+
+map <leader>s <Action>(SelectInProjectView)
+map <leader>h <Action>(Vcs.ShowTabbedFileHistory)
+map <S-Space> <Action>(GotoNextError)
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>o <Action>(FileStructurePopup)
+map <leader>w <Action>(CloseAllEditorsButActive)
+
+nmap <leader>u <Action>(ShowUsages)
+
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+
+
+"
